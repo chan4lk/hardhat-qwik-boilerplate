@@ -1,16 +1,19 @@
-import React from "react";
-
-export function Transfer({ transferTokens, tokenSymbol }) {
+import { component$, QRL } from '@builder.io/qwik';
+export interface TransferProps {
+  transferTokens : QRL<(to:any, amount:any) => void>; 
+  tokenSymbol: string;
+}
+export const Transfer = component$<TransferProps>(({ transferTokens, tokenSymbol }) => {
   return (
     <div>
       <h4>Transfer</h4>
       <form
-        onSubmit={(event) => {
+        onSubmit$={(event) => {
           // This function just calls the transferTokens callback with the
           // form's data.
           event.preventDefault();
 
-          const formData = new FormData(event.target);
+          const formData = new FormData(event.target as any);
           const to = formData.get("to");
           const amount = formData.get("amount");
 
@@ -40,4 +43,4 @@ export function Transfer({ transferTokens, tokenSymbol }) {
       </form>
     </div>
   );
-}
+});

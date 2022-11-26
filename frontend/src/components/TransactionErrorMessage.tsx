@@ -1,6 +1,9 @@
-import React from "react";
-
-export function TransactionErrorMessage({ message, dismiss }) {
+import { component$, QRL } from '@builder.io/qwik';
+export interface TransactionErrorMessageProps {
+  message: string;
+  dismiss: QRL<() => void>;
+}
+export const TransactionErrorMessage = component$<TransactionErrorMessageProps>(({ message, dismiss }) => {
   return (
     <div className="alert alert-danger" role="alert">
       Error sending transaction: {message.substring(0, 100)}
@@ -9,10 +12,10 @@ export function TransactionErrorMessage({ message, dismiss }) {
         className="close"
         data-dismiss="alert"
         aria-label="Close"
-        onClick={dismiss}
+        onClick$={() => dismiss()}
       >
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
   );
-}
+});

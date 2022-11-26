@@ -1,6 +1,6 @@
-import React from "react";
+import { component$ } from '@builder.io/qwik';
 
-export function Loading() {
+export const Loading = component$(() => {
   return (
     <div
       style={{
@@ -32,4 +32,4 @@ export function Loading() {
       </div>
     </div>
   );
-}
+});

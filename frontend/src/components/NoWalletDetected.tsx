@@ -1,6 +1,6 @@
-import React from "react";
+import { component$ } from '@builder.io/qwik';
 
-export function NoWalletDetected() {
+export const NoWalletDetected = component$(() =>{
   return (
     <div className="container">
       <div className="row justify-content-md-center">
@@ -21,4 +21,4 @@ export function NoWalletDetected() {
       </div>
     </div>
   );
-}
+});

@@ -1,6 +1,8 @@
-import React from "react";
-
-export function NoTokensMessage({ selectedAddress }) {
+import { component$ } from '@builder.io/qwik';
+export interface NoTokensMessageProps {
+  selectedAddress: string;
+}
+export const NoTokensMessage = component$<NoTokensMessageProps>(({ selectedAddress }) => {
   return (
     <>
       <p>You don't have tokens to transfer</p>
@@ -12,4 +14,4 @@ export function NoTokensMessage({ selectedAddress }) {
       </p>
     </>
   );
-}
+});

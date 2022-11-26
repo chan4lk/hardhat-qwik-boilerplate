@@ -1,8 +1,14 @@
-import React from "react";
+import { component$ } from '@builder.io/qwik';
 
 import { NetworkErrorMessage } from "./NetworkErrorMessage";
 
-export function ConnectWallet({ connectWallet, networkError, dismiss }) {
+export interface ConnectWalletProps {
+  connectWallet: any;
+  networkError: any;
+  dismiss: any;
+}
+
+export const ConnectWallet = component$<ConnectWalletProps>(({ connectWallet, networkError, dismiss }) => {
   return (
     <div className="container">
       <div className="row justify-content-md-center">
@@ -20,7 +26,7 @@ export function ConnectWallet({ connectWallet, networkError, dismiss }) {
           <button
             className="btn btn-warning"
             type="button"
-            onClick={connectWallet}
+            onClick$={() => connectWallet()}
           >
             Connect Wallet
           </button>
@@ -28,4 +34,4 @@ export function ConnectWallet({ connectWallet, networkError, dismiss }) {
       </div>
     </div>
   );
-}
+});
